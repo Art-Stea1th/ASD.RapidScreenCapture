@@ -40,7 +40,7 @@ namespace ASD.RSC.ViewModels {
             screenCaptureService = new ScreenCaptureService();
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromTicks(1);
-            timer.Tick += (s, e) => screenCaptureService.UpdateScreen();
+            timer.Tick += (s, e) => screenCaptureService.UpdateScreenBuffer();
         }
 
         private void InitializeCommands() {

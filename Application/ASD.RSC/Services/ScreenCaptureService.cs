@@ -28,7 +28,7 @@ namespace ASD.RSC.Services {
 
         public ScreenCaptureService() => ValidateScreenParameters();
 
-        public void UpdateScreen() {
+        public void UpdateScreenBuffer() {
 
             using (var bitmap = new D.Bitmap(width, height, dFormat)) {
                 using (var graphics = D.Graphics.FromImage(bitmap)) {
@@ -36,9 +36,9 @@ namespace ASD.RSC.Services {
                     ValidateScreenParameters();
                     graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
 
-                    var dataPtr = bitmap.LockBits(dRect, dLockMode, dFormat);
-                    ScreenBuffer.WritePixels(rect, dataPtr.Scan0, bufferSize, ScreenBuffer.BackBufferStride);
-                    bitmap.UnlockBits(dataPtr);
+                    var data = bitmap.LockBits(dRect, dLockMode, dFormat);
+                    ScreenBuffer.WritePixels(rect, data.Scan0, bufferSize, ScreenBuffer.BackBufferStride);
+                    bitmap.UnlockBits(data);
                 }
             }
         }
