@@ -1,0 +1,19 @@
+﻿<Window x:Class="ASD.RSC.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ASD.RSC.ViewModels"
+        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        d:DataContext="{d:DesignInstance Type=vm:ShellViewModel,
+        IsDesignTimeCreatable=True}"
+        
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        
+        Title="{Binding Title}" Width="640" Height="440"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True">
+    <Grid>
+        
+    </Grid>
+</Window>
